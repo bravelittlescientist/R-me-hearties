@@ -38,12 +38,16 @@ total_out_frame = botscale_dataframe(total_out_means, total_out_errors)
 
 # CPU
 cpu_plot = greyscale_multibar(cpu_frame, cpu_title, bot_xlabel, cpu_ylabel)
-print(cpu_plot)
+#print(cpu_plot)
 
+# Baseline Histogram
+m <- ggplot(cpu_log[c(2)], aes(x=baseline_sitting_50)) 
+m + geom_histogram() + ylab("count") + xlab("Average CPU load") + ggtitle("Distribution of CPU Load for 50 Bots, Baseline Configuration")
+  
 # Packets Processed, use Multiplot
 cpu_plot = greyscale_multibar(cpu_frame, cpu_title, bot_xlabel, cpu_ylabel)
 processed_plot = greyscale_multibar(processed_frame, processed_title, bot_xlabel, packets_ylabel, aux=theme(legend.position="none"))
 total_inc_plot = greyscale_multibar(total_inc_frame, total_inc_title, bot_xlabel, packets_ylabel, aux=theme(legend.position="none"))
 total_out_plot = greyscale_multibar(total_out_frame, total_out_title, bot_xlabel, packets_ylabel)
 
-multiplot(total_inc_plot, processed_plot, total_out_plot, cols=3)
+#multiplot(total_inc_plot, processed_plot, total_out_plot, cols=3)
