@@ -36,9 +36,9 @@ processed_frame = botscale_dataframe(processed_means, processed_errors)
 total_inc_frame = botscale_dataframe(total_inc_means, total_inc_errors)
 total_out_frame = botscale_dataframe(total_out_means, total_out_errors)
 
-# CPU - Done
+# CPU
 cpu_plot = greyscale_multibar(cpu_frame, cpu_title, bot_xlabel, cpu_ylabel)
-#print(cpu_plot)
+print(cpu_plot)
 
 # Packets Processed, use Multiplot
 cpu_plot = greyscale_multibar(cpu_frame, cpu_title, bot_xlabel, cpu_ylabel)
@@ -46,4 +46,4 @@ processed_plot = greyscale_multibar(processed_frame, processed_title, bot_xlabel
 total_inc_plot = greyscale_multibar(total_inc_frame, total_inc_title, bot_xlabel, packets_ylabel, aux=theme(legend.position="none"))
 total_out_plot = greyscale_multibar(total_out_frame, total_out_title, bot_xlabel, packets_ylabel)
 
-multiplot(processed_plot, total_inc_plot, total_out_plot, cols=3)
+multiplot(total_inc_plot, processed_plot, total_out_plot, cols=3)
